@@ -3,6 +3,9 @@
 ## kurulum script
 
 - Kurulum için sadece moniker ismi soruyor giriyoruz otomatik kuruluyor. google kullanıyorsanız başlamadan sudo su yazıp enterlayın ve öyle başlayın
+
+1 seçip install dıyoruz kurulum için ismimizi yazıyoruz bitincede ctrl c yapıp devam edıyoruz
+
 ```
 wget -O gitop https://raw.githubusercontent.com/obajay/nodes-Guides/main/Gitopia/gitop && chmod +x gitop && ./gitop
 ```
