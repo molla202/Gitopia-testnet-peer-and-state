@@ -4,7 +4,7 @@
 
 - Kurulum için sadece moniker ismi soruyor giriyoruz otomatik kuruluyor. google kullanıyorsanız başlamadan sudo su yazıp enterlayın ve öyle başlayın
 ```
-wget -O GTP.sh https://raw.githubusercontent.com/Nodeist/Kurulumlar/main/Gitopia/GTP && chmod +x GTP.sh && ./GTP.sh
+wget -O gitop https://raw.githubusercontent.com/obajay/nodes-Guides/main/Gitopia/gitop && chmod +x gitop && ./gitop
 ```
 
 - Kurulum bittikten sona alttaki kodu komple kopyala yapıştır yapın.
