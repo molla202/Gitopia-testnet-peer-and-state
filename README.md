@@ -42,12 +42,12 @@ not: eşleşme sağlanınca diğer adımları yalpalım
 
 ## cüzdan oluşturma
 ```
-gitopiad keys add $GTP_WALLET
+gitopiad keys add cüzdan-adınızı-yazın
 ```
 
 ## var olan cüzdanı geri dönme
 ```
-gitopiad keys add $GTP_WALLET --recover
+gitopiad keys add cüzdan-adınızı-yazın --recover
 ```
 
 ## valdator olusturma
