@@ -13,13 +13,12 @@ wget -O gitop https://raw.githubusercontent.com/obajay/nodes-Guides/main/Gitopia
 - Kurulum bittikten sona alttaki kodu komple kopyala yapıştır yapın.
 ## state sycn
 ```
-peers="93b218e53303ca91b7bb4f22edbb858496b1b434@65.108.6.45:60756"
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.gitopia/config/config.toml
+SNAP_RPC=https://gitopia-testnet-rpc.polkachu.com:443
 
-SNAP_RPC=https://t-gitopia.rpc.utsa.tech:443
-
+peers="fbe3b1e34e1dfe9ae2cd0db471b0a807bbb3c5f2@65.109.90.178:11356"
+sed -i 's|^persistent_peers *=.*|persistent_peers = "'$peers'"|' $HOME/.gitopia/config/config.toml
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
@@ -29,6 +28,8 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.gitopia/config/config.toml
+gitopiad tendermint unsafe-reset-all --home /root/.gitopia
+systemctl restart gitopiad && journalctl -u gitopiad -f -o cat
 ```
 - Buda bitince alttaki peer kodunu komple kopyala yapıştır
 
